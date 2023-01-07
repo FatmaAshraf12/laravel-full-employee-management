@@ -22,6 +22,8 @@ class CityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationGroup = 'System Managment';
+
     public static function form(Form $form): Form
     {
         return $form

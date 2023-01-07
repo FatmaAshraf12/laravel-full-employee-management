@@ -15,12 +15,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
+use App\Filament\Resources\CountryResource\RelationManagers\EmployeesRelationManager;
+use App\Filament\Resources\CountryResource\RelationManagers\StatesRelationManager;
 
 class CountryResource extends Resource
 {
     protected static ?string $model = Country::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationGroup = 'System Managment';
 
     public static function form(Form $form): Form
     {
@@ -57,7 +60,9 @@ class CountryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            EmployeesRelationManager::class,
+            StatesRelationManager::class
+
         ];
     }
 
